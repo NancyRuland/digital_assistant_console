@@ -18,13 +18,8 @@ while True:
     except ValueError:
         fehlversuche = fehlversuche + 1
         print("Ungültige Eingabe! Bitte Zahl eingeben:")
-        continue
-    
-    
-    rechenzeichen = input("Gib ein Rechenzeichen ein (+, -, *, /)")
-        
-
-       
+        continue    
+    rechenzeichen = input("Gib ein Rechenzeichen ein (+, -, *, /)")              
     try:
         z2 = int(input("Gib eine Zahl ein: "))
          
@@ -32,15 +27,8 @@ while True:
         fehlversuche = fehlversuche + 1
         print("Ungültige Eingabe! Bitte Zahl eingeben:")
         continue
-       
-  
-    
-
-#Verarbeitung
-#Rechenweg ausführen
-    
-    
-    
+       #Verarbeitung
+#Rechenweg ausführen    
     if rechenzeichen not in ["+", "-", "*", "/"]:
         fehlversuche = fehlversuche +1
         print("Ungültige Eingabe! Gib +, -, *, /, ein!")

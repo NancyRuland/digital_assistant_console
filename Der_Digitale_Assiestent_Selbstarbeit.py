@@ -2,60 +2,44 @@
 #Ein Projekt das mitwächst, zum Lernen und Erweitern.
 # Mögliche Inhalte: Einkaufsliste, Uhrzeit, Taschenrechner, Dateimanager,
 
-
 #Hier beginnt "Hauptmenü"
 fehlversuche = 0
+meine_liste = []  # Einkaufsliste nach außen gezogen
+
 while True:
-    
     print("\nHallo, was möchtest Du tun?")
     print("1. Einkaufsliste")
     print("2. Uhrzeit anzeigen")
     print("3. Taschenrechner")
     print("4. Beenden")
-    
     auswahl = input("Tippe die zugehörige Ziffer zur Auswahl: ")
     
     if auswahl == "1":
-        
-# hier beginnt Einkaufsliste (eigenes Projekt)
-
-        meine_liste = []
-        fehlversuche = 0
-        #def einkaufsliste():
+        # hier beginnt Einkaufsliste (eigenes Projekt)
+        einkaufs_fehlversuche = 0  # Lokale Variable für Einkaufsliste
         #User fragen ob hinzufügen oder entfernen oder beenden:
-        while len(meine_liste) < 100 :
-                
-                eingabe = input("Möchtest Du ein Produkt hinzufügen (+), entfernen (-) oder Programm beenden (b) ?")
-                if eingabe == "+":
-                    produkt = input("Gib das Produkt ein, dass der Einkaufsliste hinzugefügt werden soll: ")
-                    meine_liste.append(produkt)
-                    print(meine_liste)
-                elif eingabe == "-":
-                    produkt = input("Gib das Produkt ein, dass aus der Einkaufsliste entfernt werden soll: ")
+        while len(meine_liste) < 100:
+            eingabe = input("Möchtest Du ein Produkt hinzufügen (+), entfernen (-) oder Programm beenden (b) ?")
+            if eingabe == "+":
+                produkt = input("Gib das Produkt ein, dass der Einkaufsliste hinzugefügt werden soll: ")
+                meine_liste.append(produkt)
+                print(meine_liste)
+            elif eingabe == "-":
+                produkt = input("Gib das Produkt ein, dass aus der Einkaufsliste entfernt werden soll: ")
+                if produkt in meine_liste:
                     meine_liste.remove(produkt)
                     print(meine_liste)
-                elif eingabe == "b":
-                    break
-                elif fehlversuche >= 2:
-                    print("Zu viele Fehlversuche. Programm wird beendet.")
-                    break
-                
                 else:
-                    fehlversuche = fehlversuche + 1
-                    print("Ungültige Eingabe! Bitte gib (+), (-) oder (b) ein.")
-                    pass
-        #einkaufsliste()
-                    
+                    print("Produkt nicht in der Liste!")
+            elif eingabe == "b":
+                break
+            elif einkaufs_fehlversuche >= 2:
+                print("Zu viele Fehlversuche. Zurück zum Hauptmenü.")
+                break
+            else:
+                einkaufs_fehlversuche = einkaufs_fehlversuche + 1
+                print("Ungültige Eingabe! Bitte gib (+), (-) oder (b) ein.")
                 
-
-
-
-
-
-
-
-#Hier beginnt Uhrzeit
-        
     elif auswahl == "2":
         from datetime import datetime
 
@@ -71,21 +55,7 @@ while True:
         
         print("\nHeute ist der:", aktuelles_datum)
         print("und es ist:", aktuelle_uhrzeit, "Uhr.")
-        
-        
-        
-        
- #Hier beginnt Taschenrechner!!!
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        
+
     elif auswahl == "3":
         def taschenrechner():
             print("Herzlich Willkommen im Taschenrechner!")
@@ -127,12 +97,6 @@ while True:
                     
         taschenrechner()  #Funktion aufrufen! def funktion einbauen
         
-    
-#Ende Taschenrechner!!!
-        
-        
-#Programm beenden
-        
     elif auswahl == "4":
         break
     
@@ -140,14 +104,9 @@ while True:
         print("Zu viele Fehlversuche. Programm wird beendet.")
         break
         
-
     else:
         fehlversuche = fehlversuche + 1
-        print("Ungültige Eingabe!")
-        pass 
-
-
-
+        print("Ungültige Eingabe! Bitte wähle 1-4.")
 
 
 
